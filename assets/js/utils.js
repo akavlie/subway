@@ -35,7 +35,11 @@ window.utils = {
         href = 'http://' + url;
       }
       links.push(href);
-      return '<a href="' + href + '" target="_blank">' + url + '</a>';
+      if (url.indexOf('avatars') === 0) {
+        return '<a href="' + href + '" target="_blank">' + url + '</a>';
+	  } else {
+		return url;
+	  }
     });
     if (links.length>0){
       //Look for embeddable media in all the links

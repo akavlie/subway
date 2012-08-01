@@ -8,6 +8,8 @@
 //= require 'utils.js'
 //= require 'models.js'
 //= require 'collections.js'
+//= require 'helpers.js'
+//= require 'jquery.timeago.js'
 //= require_tree 'views'
 
 
@@ -264,12 +266,14 @@ $(function() {
           user: message.user,
           content: message.message.substr(8),
           renderedTime: utils.formatDate(message.date)
+          // renderedTime: iso8601(message.date)
         }, true);
       } else {
         message_html = ich.message({
           user: message.user,
           content: message.message,
           renderedTime: utils.formatDate(message.date)
+          // renderedTime: iso8601(message.date)
         }, true);
       }
 
@@ -281,7 +285,7 @@ $(function() {
       }
 
       message_html = utils.linkify(message_html);
-      message_html = "<div id=\"" + message._id + "\" class=\"message-box " + type + "\">" + message_html + "</div>";
+      message_html = "<div id=\"" + message._id + "\" class=\"message-box tweet" + type + "\">" + message_html + "</div>";
       output += message_html;
     });
     var old_height = channel.view.$('#chat-contents')[0].scrollHeight;

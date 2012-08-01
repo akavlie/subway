@@ -1,11 +1,5 @@
 script(id="chat_application", type="text/html")
   .sidebar
-    #logo
-      img(src='/assets/images/subway.png')
-    h2 Subway
-      br
-      small IRC client
-    #user-box
     #channels
   .content
 
@@ -31,46 +25,42 @@ script(id="overview", type="text/html")
   #overview
 
 script(id="overview_connection", type="text/html")
+  h1 IRC Connection
   #home_parent
     a.overview_button#home Home
   form.form-horizontal
     .control-group
-      label(for="connect-server") Server
       .controls
-        input#connect-server(type="text")
+        input#connect-server(type="text", placeholder="Server URL", class="input-large", value="irc.freenode.net")
     .control-group
-      label(for="connect-port") Port
       .controls
-        input#connect-port.input-small(type="text", placeholder="6667")
+        input#connect-port.input-small(type="text", placeholder="port", class="input-large", value="6667")
     .control-group
-      label(for="connect-secure") SSL
       .controls
-        input#connect-secure(type="checkbox")
+        input#connect-secure(type="checkbox") 
+        p SSL
     .control-group#ssl-self-signed
-      label(for="connect-selfSigned") Self-signed SSL Cert
       .controls
         input#connect-selfSigned(type="checkbox")
+        p Self-signed SSL Cert
     .control-group
-      label(for="connect-nick") Nick
       .controls
-        input#connect-nick(type="text")
+        input#connect-nick(type="text", placeholder="Nickname", class="input-large", autofocus="autofocus")
     .control-group
-      label(for="connect-password") Password (optional)
       .controls
-        input#connect-password(type="password")
+        input#connect-password(type="password", placeholder="Password (optional)", class="input-large")
     .control-group
-      label(for="connect-realName") Real Name
       .controls
-        input#connect-realName(type="text")
+        input#connect-realName(type="text", placeholder="Real Name", class="input-large")
     .control-group
-      label(for="connect-away") Away Message
       .controls
-        input#connect-away(type="text", placeholder="AFK")
+        input#connect-away(type="text", placeholder="Away Message", value="AFK")
     .control-group
-      label(for="connect-rejoin") Bouncer Mode
       .controls
         input#connect-rejoin(type="checkbox")
-    a(id="connect-button", class="btn btn-primary", type="button") Connect
+        p Bouncer Mode
+    center
+      a(id="connect-button", class="btn btn-primary btn-large", type="button") Connect
 
 script(id="overview_settings", type="text/html")
   #home_parent
@@ -78,32 +68,32 @@ script(id="overview_settings", type="text/html")
   p Coming soon.
 
 script(id="overview_login", type="text/html")
+  h1 Login
   #home_parent
-    a.overview_button#home Home
+    a.overview_button#home home
   form.form-horizontal
     .control-group
-      label(for="login-username") Username
       .controls
-        input#login-username(type="text")
+        input#login-username(type="text", placeholder="Username", class="input-large", autofocus="autofocus")
     .control-group
-      label(for="login-password") Password
       .controls
-        input#login-password(type="password")
-    a(id="login-button", class="btn btn-primary", type="submit") Login
+        input#login-password(type="password", placeholder="Password", class="input-large")
+    center
+      a(id="login-button", class="btn btn-primary btn-large", type="submit") Login
 
 script(id="overview_register", type="text/html")
+  h1 Registration
   #home_parent
     a.overview_button#home Home
   form.form-horizontal
     .control-group
-      label(for="register-username") Username
       .controls
-        input#register-username(type="text")
+        input#register-username(type="text", placeholder="Username", class="input-large", autofocus="autofocus")
     .control-group
-      label(for="register-password") Password
       .controls
-        input#register-password(type="password")
-    a(id="register-button", class="btn btn-primary", type="button") Register
+        input#register-password(type="password", placeholder="Password", class="input-large")
+    center
+      a(id="register-button", class="btn btn-primary btn-large", type="button") Register
 
 script(id="titlebar", type="text/html")
   .titlebar
@@ -118,18 +108,19 @@ script(id="chat", type="text/html")
       #input-container.bar
         .input
           input(id="chat-input")
-          a(id="chat-button", class="btn disabled") Send
+          a(id="chat-button", class="btn btn-primary btn-large disabled") Send
     #user-window
       #user-bar.bar
         .titlebar
           span(class='window_title') User List
       #user-list.bar
+    
 
 script(id="channel", type="text/html")
   span(class="channel-name") {{name}}
   {{#notStatus}}
   .close-button ×
-  span(class="unread", title="Unread Messages") {{unread}}
+  span(class="unread badge badge-important", title="Unread Messages") {{unread}}
   span(class="unread-mentions", title="Mentions in channel") {{unread_mentions}}
   {{/notStatus}}
 
@@ -179,12 +170,14 @@ script(id="action", type="text/html")
     span {{renderedTime}}
 
 script(id="message", type="text/html")
-  .chat-name
-    b {{user}}
-  div(class="chat-message {{type}}")
-    span {{content}}
-  .chat-time
-    span {{renderedTime}}
+  img(src="http://avatars.io/auto/{{{user}}}", width="50", height="50") 
+  b {{user}}: 
+  {{content}}
+  .pull-right
+    abbr(class="timeago", title="{{renderedTime}}")
+      {{renderedTime}}
+
+# <abbr class="timeago" title="' + iso8601(new Date()) + '">' + jQuery.timeago(new Date()) + '</abbr>
 
 script(id="join_part", type="text/html")
   span(class="{{type}}_img")

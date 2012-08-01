@@ -3,7 +3,7 @@ var MessageView = Backbone.View.extend({
     this.render();
   },
 
-  className: 'message-box',
+  className: 'message-box tweet',
 
   render: function() {
     var nick = this.model.get('sender') || this.model.collection.channel.get('name');
@@ -17,6 +17,7 @@ var MessageView = Backbone.View.extend({
         user: nick,
         content: this.model.get('text').substr(8),
         renderedTime: utils.formatDate(Date.now())
+        // renderedTime: iso8601(Date.now())
       }, true);
       html = this.model.parse(html);
     } else {
@@ -25,6 +26,7 @@ var MessageView = Backbone.View.extend({
         type: this.model.get('type'),
         content: this.model.get('text'),
         renderedTime: utils.formatDate(Date.now())
+        // renderedTime: iso8601(Date.now())
       }, true);
       html = this.model.parse(html);
     }
