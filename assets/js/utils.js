@@ -35,7 +35,7 @@ window.utils = {
         href = 'http://' + url;
       }
       links.push(href);
-      if (url.indexOf('avatars') === 0) {
+      if (url.indexOf('http://avatars.io/auto') == -1) {
         return '<a href="' + href + '" target="_blank">' + url + '</a>';
 	  } else {
 		return url;
@@ -61,6 +61,20 @@ window.utils = {
         }
       }
     }
+
+	// emoticons
+	  parsed=parsed.replace(/:\)/g, '<img src="/assets/images/happy.gif">') ;
+	  parsed=parsed.replace(/:-\)/g, '<img src="/assets/images/happy.gif">') ;
+	  parsed=parsed.replace(/:\(/g, '<img src="/assets/images/sad.gif">') ;
+	  parsed=parsed.replace(/:-\(/g, '<img src="/assets/images/sad.gif">') ;
+	  parsed=parsed.replace(/:'\(/g, '<img src="/assets/images/sad.gif">') ;
+	  parsed=parsed.replace(/:D/g, '<img src="/assets/images/awesome.gif">') ;
+	  parsed=parsed.replace(/:P/g, '<img src="/assets/images/tongue.gif">') ;
+	  parsed=parsed.replace(/:p/g, '<img src="/assets/images/tongue.gif">') ;
+	  parsed=parsed.replace(/;\)/g, '<img src="/assets/images/wink.gif">') ;
+	  parsed=parsed.replace(/;-\)/g, '<img src="/assets/images/wink.gif">') ;
+	  parsed=parsed.replace(/;\//g, '<img src="/assets/images/wink.gif">') ;
+
     return parsed;
   },
 

@@ -1,7 +1,31 @@
 script(id="chat_application", type="text/html")
+  div(class="navbar navbar-fixed-top")
+    div.navbar-inner
+      div.container
+        a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        a(href='#').brand BizIRC
+        div.nav-collapse
+          ul.nav
+            li.active 
+              a(href='#') Home
+            li
+              a(href='#') Contact
   .sidebar
     #channels
   .content
+  div(class="modal hide", id="myModal")
+    div.modal-header
+      button(type="button", class="close", data-dismiss="modal") x
+      h3 Private Message
+    div.modal-body
+      p testing
+    div.modal-footer
+      a(href="#", class="btn", data-dismiss="modal") close
+      a(href="#", class="btn btn-primary") Send
 
 script(id="load_image", type="text/html")
   img(id="loading_image", src="/assets/images/loading.gif")
@@ -190,3 +214,5 @@ script(id="alert", type="text/html")
   .alert(class = "{{type}}")
     a(class="close", data-dismiss="alert", href="#") &times;
     {{content}}
+
+  

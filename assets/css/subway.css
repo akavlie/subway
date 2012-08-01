@@ -20,7 +20,9 @@ html { overflow: hidden; }
 }
 .container-fluid > .sidebar {
   position: fixed;
-  top: 0;
+/*  top: 0;*/
+  top: 40px;
+
   width: 15%;
   min-height:100%;
   background-color: #E7E9ED;
@@ -233,14 +235,16 @@ html { overflow: hidden; }
   -moz-box-sizing: border-box; /* for Mozilla */
   -webkit-box-sizing: border-box; /* for WebKit */
   -ms-box-sizing: border-box; /* for IE8 */
+
 }
 
 #chat-bar {
   border-right: 1px solid #666666;
+
 }
 
 #chat-bar, #user-bar{
-  top: 0;
+/*  top: 0;*/
   height: 34px;
   background: #434950;
   color: #eee;
@@ -266,7 +270,8 @@ html { overflow: hidden; }
 
 #chat-contents {
   /*height: 85%;*/
-  top: 34px;
+/*  top: 34px;*/
+  top: 40px;
   bottom: 57px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -398,6 +403,7 @@ html { overflow: hidden; }
   position: absolute;
   margin-left: 0%;
   background: #E7E9ED;
+  top: 40px;
 }
 
 #user-list {
@@ -456,6 +462,46 @@ html { overflow: hidden; }
   color: #666666;
 }
 
+/* Marketing section of Overview
+-------------------------------------------------- */
+.marketing .row {
+  margin-bottom: 9px;
+}
+.marketing h1 {
+  margin: 36px 0 27px;
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+}
+.marketing h2,
+.marketing h3 {
+  font-weight: 300;
+}
+.marketing h2 {
+  font-size: 22px;
+}
+.marketing p {
+  margin-right: 10px;
+}
+.marketing .bs-icon {
+  float: left;
+  margin: 7px 10px 0 0;
+  opacity: .8;
+}
+.marketing .small-bs-icon {
+  float: left;
+  margin: 4px 5px 0 0;
+}
+.marketing-byline {
+  margin: -18px 0 27px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #999;
+  text-align: center;
+}
+
+/* Chat / Tweet style */
 .instagroto,.tweet,.place,.your-location{display:block;cursor:pointer;text-decoration:none;color:#444;background-color:#e7e7e7;background-image:-moz-linear-gradient(top,#eee,#ddd);background-image:-ms-linear-gradient(top,#eee,#ddd);background-image:-webkit-gradient(linear,0 0,0 100%,from(#eee),to(#ddd));background-image:-webkit-linear-gradient(top,#eee,#ddd);background-image:-o-linear-gradient(top,#eee,#ddd);background-image:linear-gradient(top,#eee,#ddd);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFEEEEEE,endColorstr=#FFDDDDDD);border-bottom:1px #bbb solid;}
 .instagroto:hover,.tweet:hover,.place:hover,.your-location:hover{background-color:#d6d6d6;background-image:-moz-linear-gradient(top,#ddd,#ccc);background-image:-ms-linear-gradient(top,#ddd,#ccc);background-image:-webkit-gradient(linear,0 0,0 100%,from(#ddd),to(#ccc));background-image:-webkit-linear-gradient(top,#ddd,#ccc);background-image:-o-linear-gradient(top,#ddd,#ccc);background-image:linear-gradient(top,#ddd,#ccc);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFDDDDDD,endColorstr=#FFCCCCCC)}
 .instagroto:active,.tweet:active,.place:active,.your-location:active{background-color:#d2d2d2;background-image:-moz-linear-gradient(top,#ccc,#ddd);background-image:-ms-linear-gradient(top,#ccc,#ddd);background-image:-webkit-gradient(linear,0 0,0 100%,from(#ccc),to(#ddd));background-image:-webkit-linear-gradient(top,#ccc,#ddd);background-image:-o-linear-gradient(top,#ccc,#ddd);background-image:linear-gradient(top,#ccc,#ddd);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFCCCCCC,endColorstr=#FFDDDDDD)}

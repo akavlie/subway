@@ -1,7 +1,7 @@
 !!! 5
 html
   head
-    title Subway
+    title BizIRC
     link(href='/assets/images/favicon.ico', rel='icon', type='image/x-icon')
     != css('bootstrap.min')
     != css('subway')
@@ -11,5 +11,23 @@ html
           PORT = #{port};
     != js('client')
     include templates
+
   body
+
+    div(class="navbar navbar-fixed-top")
+      div.navbar-inner"
+        div.container
+          a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          a(href='#').brand BizIRC
+          div.nav-collapse
+            ul.nav
+              li.active 
+                a(href='#') Home
+              li
+                a(href='#') Contact
+
     block content
