@@ -1,13 +1,27 @@
 script(id="chat_application", type="text/html")
   div(class="navbar navbar-fixed-top")
     div.navbar-inner
-      div.container
+      div.container-fluid
         a(class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse")
           span.icon-bar
           span.icon-bar
           span.icon-bar
 
         a(href='#').brand BizIRC
+        div(class="btn-group pull-right")
+          a(class="btn dropdown-toggle", data-toggle="dropdown", href="#")
+            i.icon-user 
+            span Username 
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href="#") Profile
+            li
+              a(href="#") Signout
+
+        form(class="navbar-search pull-right", action="")
+          input(type="text", class="search-query", placeholder="Search")
+
         div.nav-collapse
           ul.nav
             li.active 
@@ -17,15 +31,16 @@ script(id="chat_application", type="text/html")
   .sidebar
     #channels
   .content
-  div(class="modal hide", id="myModal")
+  div(class="modal hide", id="privateMessage")
     div.modal-header
       button(type="button", class="close", data-dismiss="modal") x
       h3 Private Message
     div.modal-body
-      p testing
+      input(type="text", name="userId", id="UserId", value="")
+      textarea(class="input-xxlarge", id="privateMessage-text")
     div.modal-footer
-      a(href="#", class="btn", data-dismiss="modal") close
-      a(href="#", class="btn btn-primary") Send
+      a(href="#", class="btn", data-dismiss="modal") cancel
+      a(href="#", class="btn btn-primary", id="privateSend-button") Send
 
 script(id="load_image", type="text/html")
   img(id="loading_image", src="/assets/images/loading.gif")
@@ -161,7 +176,8 @@ script(id="userlist_user", type="text/html")
     img(src="/assets/images/{{user_status}}.png")
     span(class="userlist_user_{{user_stats}}")
   div(class="userlist_user_info")
-    div(class="userlist_user_name") {{role}}{{nick}}
+    div(class="userlist_user_name") 
+    a(class="announce", data-toggle="modal", data-id="{{nick}}") {{role}}{{nick}}
       span(class="userlist_user_time") {{activity}}
 
 script(id="link", type="text/html")
@@ -195,17 +211,17 @@ script(id="action", type="text/html")
 
 script(id="message", type="text/html")
   img(src="http://avatars.io/auto/{{{user}}}", width="50", height="50") 
-  b {{user}}: 
+  a(class="announce", data-toggle="modal", data-id="{{user}}") {{user}}: 
   {{content}}
   .pull-right
     abbr(class="timeago", title="{{renderedTime}}")
-      {{renderedTime}}
+      {{renderedTime}})
 
 # <abbr class="timeago" title="' + iso8601(new Date()) + '">' + jQuery.timeago(new Date()) + '</abbr>
 
 script(id="join_part", type="text/html")
   span(class="{{type}}_img")
-  span <b>{{nick}}</b> {{action}} the channel {{reason}} {{message}}
+  span <b><a class="announce" data-toggle="modal" data-id="{{nick}}">{{nick}}</a></b> {{action}} the channel {{reason}} {{message}}
 
 script(id="nick", type="text/html")
   span <b>{{oldNick}}</b> is now known as {{newNick}}

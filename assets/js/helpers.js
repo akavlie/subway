@@ -107,3 +107,21 @@ function loadYoungOldYears() {
     years: function(value) { return (value < 21) ? "%d young years" : "%d old years"; }
   });
 }
+
+$(document).on("click", ".announce", function () {
+	var username = $(this).data('id');
+	$(".modal-body #UserId").val( username );
+    $('#privateMessage').modal('show');
+});
+
+$(document).on("click", "#privateSend-button", function () {
+  var commandText = [];
+  commandText[0] = '/msg';
+  commandText[1] = $('#UserId').val();
+  commandText[2] = $('#privateMessage-text').val();
+
+  $('#UserId').val('');
+  $('#privateMessage-text').val('');
+  $('#privateMessage').modal('hide');
+  irc.handleCommand(commandText);
+});
