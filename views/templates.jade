@@ -7,7 +7,7 @@ script(id="chat_application", type="text/html")
           span.icon-bar
           span.icon-bar
 
-        a(href='#').brand BizIRC
+        a(href='#').brand bizirc
         div(class="btn-group pull-right")
           a(class="btn dropdown-toggle", data-toggle="dropdown", href="#")
             i.icon-user 
@@ -24,20 +24,23 @@ script(id="chat_application", type="text/html")
 
         div.nav-collapse
           ul.nav
-            li.active 
-              a(href='#') Home
             li
-              a(href='#') Contact
+              a(class="announce", data-toggle="modal", data-id="") 
+                i(class="icon-edit icon-white") &nbsp;
+                span(style="cursor: pointer;") &nbsp;Private Message
+  
   .sidebar
     #channels
   .content
+
+
   div(class="modal hide", id="privateMessage")
     div.modal-header
       button(type="button", class="close", data-dismiss="modal") x
       h3 Private Message
     div.modal-body
-      input(type="text", name="userId", id="UserId", value="")
-      textarea(class="input-xxlarge", id="privateMessage-text")
+      input(type="text", name="userId", id="UserId", value="", placeholder="Username")
+      textarea(class="input-xxlarge", id="privateMessage-text", autofocus="autofocus", placeholder="Message")
     div.modal-footer
       a(href="#", class="btn", data-dismiss="modal") cancel
       a(href="#", class="btn btn-primary", id="privateSend-button") Send
@@ -46,6 +49,7 @@ script(id="load_image", type="text/html")
   img(id="loading_image", src="/assets/images/loading.gif")
 
 script(id="overview_home", type="text/html")
+  p Welcome to Bizirc!
   ul
     li.overview_button#connection
       img(src="/assets/images/connection.svg")
@@ -162,6 +166,11 @@ script(id="channel", type="text/html")
   span(class="unread badge badge-important", title="Unread Messages") {{unread}}
   span(class="unread-mentions", title="Mentions in channel") {{unread_mentions}}
   {{/notStatus}}
+  # #user-window
+  #   #user-bar.bar
+  #     .titlebar
+  #       span(class='window_title') User List
+  #   #user-list.bar
 
 script(id="user_box", type="text/html")
   div
@@ -177,7 +186,8 @@ script(id="userlist_user", type="text/html")
     span(class="userlist_user_{{user_stats}}")
   div(class="userlist_user_info")
     div(class="userlist_user_name") 
-    a(class="announce", data-toggle="modal", data-id="{{nick}}") {{role}}{{nick}}
+    a(class="announce", data-toggle="modal", data-id="{{nick}}") 
+      span(style="cursor: pointer;") {{role}}{{nick}}
       span(class="userlist_user_time") {{activity}}
 
 script(id="link", type="text/html")
@@ -214,8 +224,8 @@ script(id="message", type="text/html")
   a(class="announce", data-toggle="modal", data-id="{{user}}") {{user}}: 
   {{content}}
   .pull-right
-    abbr(class="timeago", title="{{renderedTime}}")
-      {{renderedTime}})
+    abbr(class="timeago", title="{{renderedTime}}") 
+      {{renderedTime}}
 
 # <abbr class="timeago" title="' + iso8601(new Date()) + '">' + jQuery.timeago(new Date()) + '</abbr>
 

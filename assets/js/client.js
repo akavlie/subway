@@ -6,6 +6,7 @@
 //= require 'libs/ICanHaz.min.js'
 //= require 'libs/bootstrap.min.js'
 //= require 'libs/bootstrap-modal.js'
+//= require 'libs/bootstrap-collapse.js'
 //= require 'libs/bootstrap-transition.js'
 //= require 'utils.js'
 //= require 'models.js'

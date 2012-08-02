@@ -125,3 +125,11 @@ $(document).on("click", "#privateSend-button", function () {
   $('#privateMessage').modal('hide');
   irc.handleCommand(commandText);
 });
+
+<!-- timestamp updates -->
+$(document).ready(function($) {			
+	window.setInterval(function() {
+        prepareDynamicDates();
+        $("abbr.timeago").timeago();
+		}, 6000);
+ 		});

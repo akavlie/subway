@@ -19,8 +19,9 @@ html { overflow: hidden; }
   clear: both;
 }
 .container-fluid-local > .sidebar {
-  position: fixed;
 /*  top: 0;*/
+  position: fixed;
+
   top: 40px;
 
   width: 15%;
@@ -61,6 +62,7 @@ html { overflow: hidden; }
   padding: 10px;
   background: #E7E9ED;
   border: 2px solid #DDD;
+  top: 60px;
 }
 
 #overview label { width: 70px; }
@@ -271,6 +273,7 @@ html { overflow: hidden; }
 #chat-contents {
   /*height: 85%;*/
 /*  top: 34px;*/
+
   top: 40px;
   bottom: 57px;
   overflow-y: auto;
@@ -502,6 +505,7 @@ html { overflow: hidden; }
 }
 
 /* Chat / Tweet style */
-.instagroto,.tweet,.place,.your-location{display:block;cursor:pointer;text-decoration:none;color:#444;background-color:#e7e7e7;background-image:-moz-linear-gradient(top,#eee,#ddd);background-image:-ms-linear-gradient(top,#eee,#ddd);background-image:-webkit-gradient(linear,0 0,0 100%,from(#eee),to(#ddd));background-image:-webkit-linear-gradient(top,#eee,#ddd);background-image:-o-linear-gradient(top,#eee,#ddd);background-image:linear-gradient(top,#eee,#ddd);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFEEEEEE,endColorstr=#FFDDDDDD);border-bottom:1px #bbb solid;}
+/*.instagroto,.tweet,.place,.your-location{display:block;cursor:pointer;text-decoration:none;color:#444;background-color:#e7e7e7;background-image:-moz-linear-gradient(top,#eee,#ddd);background-image:-ms-linear-gradient(top,#eee,#ddd);background-image:-webkit-gradient(linear,0 0,0 100%,from(#eee),to(#ddd));background-image:-webkit-linear-gradient(top,#eee,#ddd);background-image:-o-linear-gradient(top,#eee,#ddd);background-image:linear-gradient(top,#eee,#ddd);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFEEEEEE,endColorstr=#FFDDDDDD);border-bottom:1px #bbb solid;}
 .instagroto:hover,.tweet:hover,.place:hover,.your-location:hover{background-color:#d6d6d6;background-image:-moz-linear-gradient(top,#ddd,#ccc);background-image:-ms-linear-gradient(top,#ddd,#ccc);background-image:-webkit-gradient(linear,0 0,0 100%,from(#ddd),to(#ccc));background-image:-webkit-linear-gradient(top,#ddd,#ccc);background-image:-o-linear-gradient(top,#ddd,#ccc);background-image:linear-gradient(top,#ddd,#ccc);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFDDDDDD,endColorstr=#FFCCCCCC)}
 .instagroto:active,.tweet:active,.place:active,.your-location:active{background-color:#d2d2d2;background-image:-moz-linear-gradient(top,#ccc,#ddd);background-image:-ms-linear-gradient(top,#ccc,#ddd);background-image:-webkit-gradient(linear,0 0,0 100%,from(#ccc),to(#ddd));background-image:-webkit-linear-gradient(top,#ccc,#ddd);background-image:-o-linear-gradient(top,#ccc,#ddd);background-image:linear-gradient(top,#ccc,#ddd);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFCCCCCC,endColorstr=#FFDDDDDD)}
+*/
