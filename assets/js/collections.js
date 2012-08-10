@@ -55,10 +55,15 @@ var WindowList = Backbone.Collection.extend({
 		$('#chat-window').css('width', '100%');
 		
 		// scoot chat down to make way for video
+		// $('#chat-window').css('top', '50%');
 		$('#chat-window').css('top', '50%');
-		$('#video-window').css('height', '50%');
+		$('#chat-window').css('height', '40%');
+		$('#chat-contents').css('height', '40%');
+		$('#input-container').css('top', '43%');
+
 		// add video
-		$('#video-window').html('<iframe src="http://twelephone.com/video" width="100%" height="100%"></iframe>');
+		$('#video-window').css('height', '50%');
+		$('#video-window').html('<iframe src="http://twelephone.com/video_nochat" width="100%" height="100%"></iframe>');
 	}
 
   },
