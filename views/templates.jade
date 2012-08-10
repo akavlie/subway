@@ -28,11 +28,10 @@ script(id="chat_application", type="text/html")
               a(class="announce", data-toggle="modal", data-id="") 
                 i(class="icon-edit icon-white") &nbsp;
                 span(style="cursor: pointer;") &nbsp;Private Message
-  
-  .sidebar
-    #channels
-  .content
 
+  .sidebar
+    #channels  
+  .content
 
   div(class="modal hide", id="privateMessage")
     div.modal-header
@@ -144,20 +143,21 @@ script(id="titlebar", type="text/html")
     span(id="topic") {{{topic}}}
 
 script(id="chat", type="text/html")
-  #main-window
-    #chat-window
-      #chat-bar.bar
-      #chat-contents.bar
-      #input-container.bar
-        .input
-          input(id="chat-input")
-          a(id="chat-button", class="btn btn-primary btn-large disabled") Send
-    #user-window
-      #user-bar.bar
-        .titlebar
-          span(class='window_title') User List
-      #user-list.bar
-    
+  #main-window.container-fluid
+    .row-fluid
+      #ulist.span2
+        #user-window
+        #user-list    
+
+      #clist.span10
+        #video-window
+        #chat-window
+          #chat-bar.bar
+          #chat-contents.bar
+          #input-container.bar
+            .input
+              input(id="chat-input")
+              a(id="chat-button", class="btn btn-primary btn-large disabled") Send
 
 script(id="channel", type="text/html")
   span(class="channel-name") {{name}}
@@ -166,11 +166,6 @@ script(id="channel", type="text/html")
   span(class="unread badge badge-important", title="Unread Messages") {{unread}}
   span(class="unread-mentions", title="Mentions in channel") {{unread_mentions}}
   {{/notStatus}}
-  # #user-window
-  #   #user-bar.bar
-  #     .titlebar
-  #       span(class='window_title') User List
-  #   #user-list.bar
 
 script(id="user_box", type="text/html")
   div

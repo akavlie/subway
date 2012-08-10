@@ -44,6 +44,23 @@ var WindowList = Backbone.Collection.extend({
     });
     selected.set({active: true});
     selected.view.render();
+
+	if ((name[0] !== '#' && name !== 'status') && $('.userlist_user').length == 0 ){
+		// hide user list
+		$('#ulist').hide();
+		
+		// make chat full screen
+		$('#clist').attr('class', 'span12');		
+		$('#clist').css('margin-left', '0px');
+		$('#chat-window').css('width', '100%');
+		
+		// scoot chat down to make way for video
+		$('#chat-window').css('top', '50%');
+		$('#video-window').css('height', '50%');
+		// add video
+		$('#video-window').html('<iframe src="http://twelephone.com/video" width="100%" height="100%"></iframe>');
+	}
+
   },
 
   // Restrict to a certain type of chat window

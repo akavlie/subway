@@ -104,7 +104,7 @@ $(function() {
           channel.userList.add({nick: user, role: role, idle:0, user_status: 'idle', activity: ''});
         });
         irc.socket.emit('getOldMessages',{channelName: chanName, skip:0, amount: 50});
-      } else {
+      } else {			
         irc.socket.emit('getOldMessages',{channelName: chanName, skip:0, amount: 50});
         channel.stream.add(new Message({sender:'', raw:''}));
       }
